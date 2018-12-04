@@ -1,0 +1,70 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Update Order</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="updateForm" class="edit-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Order Name" formControlName="title" #title>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Bread" formControlName="bread" #bread>
+          <mat-option value="White">White</mat-option>
+          <mat-option value="Wheat">Wheat</mat-option>
+          <mat-option value="Whole-Grain">Whole-Grain</mat-option>
+          <mat-option value="Wrap">Wrap</mat-option>
+          <mat-option value="Flat Bread">Flat Bread</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br><br>
+      <mat-form-field>
+        <mat-select placeholder="Meat" formControlName="meat" multiple #meat>
+          <mat-option value="Turkey">Turkey</mat-option>
+          <mat-option value="Ham">Ham</mat-option>
+          <mat-option value="Roast beef">Roast Beef</mat-option>
+          <mat-option value="Chicken">Chicken</mat-option>
+          <mat-option value="Tuna">Tuna</mat-option>
+          <mat-option value="Salami">Salami</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br><br>
+      <mat-form-field>
+        <mat-select placeholder="Cheese" formControlName="cheese" #cheese>
+          <mat-option value="none">None</mat-option>
+          <mat-option value="American">American</mat-option>
+          <mat-option value="Cheddar">Cheddar</mat-option>
+          <mat-option value="Provolone">Provolone</mat-option>
+          <mat-option value="Pepperjack">Pepperjack</mat-option>
+          <mat-option value="Swiss">Swiss</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br><br>
+      <mat-form-field>
+      <mat-select placeholder="toppings" formControlName="toppings" multiple #toppings>
+        <mat-option value="lettuce">Lettuce</mat-option>
+        <mat-option value="tomato">Tomato</mat-option>
+        <mat-option value="onion">Onion</mat-option>
+        <mat-option value="green pepper">Green Peppers</mat-option>
+        <mat-option value="spinach">Spinach</mat-option>
+        <mat-option value="pickles">Pickles</mat-option>
+        <mat-option value="salt">Salt</mat-option>
+        <mat-option value="pepper">Pepper</mat-option>
+        <mat-option value="mayo">Mayonnaise</mat-option>
+        <mat-option value="mustard">Mustard</mat-option>
+        <mat-option value="honey mustard">Honey Mustard</mat-option>
+      </mat-select>
+    </mat-form-field>
+      <br><br>
+      <mat-form-field class="field-full-width">
+        <textarea matInput placeholder="Special instructions" formControlName="instructions" #instructions></textarea>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="updateOrder(title.value, bread.value, meat.value, cheese.value, toppings.value, instructions.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Submit Order</button>
+    </form>
+  </mat-card>
+</div>
